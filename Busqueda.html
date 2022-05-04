@@ -9,20 +9,21 @@
 <body>
     <form action="./Dynamics/Busqueda.php" method="post">
         <fieldset>
-            <legend>Introduce la busqueda en la torre de Bavel</legend>
+            <legend>Introduce la busqueda en la torre de Babel</legend>
             <label for="Buscar">Buscar: </label>
-            <input type="text" id="Buscar" name="Buscar" required><br><br>
+            <input type="text" id="Buscar" name="Buscar" ><br><br>
             <label for="Zona">Zona horaria de tu preferencia: </label>
             <select name="Zona">
                 <option value="value1">New York</option>
                 <option value="value2">México City</option>
                 <option value="value3">Berlín</option>
+
             </select><br><br><br>
             <label for="MODO">Modo: </label>
-            <select name="MODO">
-                <option value="value4">Oración</option>
-                <option value="value5">Normal</option>
-                <option value="value6">Palabras</option>
+            <select name="MODO">                                
+                <option value="Normal">Normal</option>
+                <option value="Orden">Orden</option>
+                <option value="Palabras">Palabras</option>
             </select><br><br><br>
             <button type="submit">Enviar</button>
             <input type="Reset" value="Borrar todo">
