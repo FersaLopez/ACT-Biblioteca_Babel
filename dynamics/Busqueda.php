@@ -39,7 +39,7 @@
                 <tbody>                                                                                                                                    
                     <tr>                    
                         <td>";
-                            if($modo=='Normal')
+                            if($modo!='Palabras')
                             {                                                                
                                 $long_texto=rand(300,500);                                 
                                 //$cadena= "Hola soy un aguacate"; 
@@ -56,18 +56,30 @@
                                         echo "$letra"; 
                                     }
                                     echo " "; 
-                                    if($i==$insertar){
+                                    if($modo == 'Normal' && $i==$insertar)
+                                    {
                                         echo "<strong>$buscar </strong>";
                                     }
-                                }
-                
-                            }
-                            else if($modo=='Orden')
-                            {
-                                
-                            }
+                                    if($modo == 'Orden' && $i==$insertar)
+                                    {
+                                        $minus_arreglo= strtolower($buscar);
+                                        $arreglo_cad = explode(" ", $minus_arreglo);
+                                        sort($arreglo_cad);
+                                        $cadenaordenada = implode(" ", $arreglo_cad);
+                                        echo "<strong>$cadenaordenada </strong>";
+                                    }
+                                }            
+                            }                            
                             else
                             {
+                                $arreglo_string = explode($buscar);
+                                $num_localidades = count($arreglo_string);
+                                for($i=0; $i < $num_localidades; $i++)
+                                {
+                                    $
+                                }
+                                
+                                    
                                 
                             }
                             
