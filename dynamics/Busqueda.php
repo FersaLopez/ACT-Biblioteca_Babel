@@ -71,20 +71,47 @@
                                 }            
                             }                            
                             else
-                            {
-                                // Agregue este apartado con comentarios porque no podía correr el código (Falta terminar)
-                                
-                                //$arreglo_string = explode($buscar);
-                                //$num_localidades = count($arreglo_string);
-                                //for($i=0; $i < $num_localidades; $i++)
-                                //{
-                                //    $
-                                //}
-                                
-                                    
-                                
-                            }
-                            
+                            {                                                                                                                                                      
+                                $long_texto=rand(300,500);                                                                       
+                                $arreglo_string = explode(" ", $buscar);
+                                $num_localidades = count($arreglo_string);                                
+                                for($i=0; $i < $num_localidades; $i++)
+                                {
+                                    $rand_posis[$i] = 0;
+                                }
+                                $i = 0;                                 
+                                while($i < $num_localidades)
+                                {
+                                    $insertar = rand(0, $long_texto);
+                                    for($y=0; $y < $num_localidades; $y++)
+                                    {
+                                        if($insertar != $rand_posis[$y])
+                                        {
+                                            array_push($rand_posis, $insertar);
+                                            array_shift($rand_posis);
+                                            $i++;
+                                        }
+                                    }                                                                                                            
+                                }                                
+                                for($i=0; $i<$long_texto; $i++)
+                                {
+                                    $long_palabra=rand(4,10);                                    
+                                    for($p=0; $p<$long_palabra; $p++)
+                                    {
+                                        $ascii=rand(97, 122); 
+                                        $letra= chr($ascii); 
+                                        echo "$letra"; 
+                                    }
+                                    echo " "; 
+                                    for($y = 0; $y<$num_localidades; $y++)
+                                    {
+                                        if($i == $rand_posis[$y])
+                                        {
+                                            echo "<strong>$arreglo_string[$y] </strong>";
+                                        }
+                                    }
+                                }                                                                                                            
+                            }                            
                         echo"
                         </td>
                     </tr>
