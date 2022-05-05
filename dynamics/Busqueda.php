@@ -72,12 +72,14 @@
                             }                            
                             else
                             {
-                                $arreglo_string = explode($buscar);
-                                $num_localidades = count($arreglo_string);
-                                for($i=0; $i < $num_localidades; $i++)
-                                {
-                                    $
-                                }
+                                // Agregue este apartado con comentarios porque no podía correr el código (Falta terminar)
+                                
+                                //$arreglo_string = explode($buscar);
+                                //$num_localidades = count($arreglo_string);
+                                //for($i=0; $i < $num_localidades; $i++)
+                                //{
+                                //    $
+                                //}
                                 
                                     
                                 
@@ -87,25 +89,102 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>
-            ";        
-            if($zona=='value1')
-            {
-                echo 'Zona Horaria: New York';
-            }
-            if($zona=='value2')
-            {
-                echo 'Zona Horaria: Mexico City';
-            }
-            if($zona=='value3')
-            {
-                echo 'Zona Horaria: Berlín';
-            }
-            echo '<br>';
-            echo '<br>';                                
-            echo 'Busqueda: ';
-            echo $buscar;
-            echo '<br>';
+                </table>
+                ";        
+                echo "<br>";
+                echo "<b>La fecha de la consulta de este libro fue: </b>";
+                
+                //Config Zona Horaria
+                if($zona=='value1')
+                {
+                    date_default_timezone_set("America/New_York");
+                    $lugar = date_default_timezone_get();
+                    $fecha=date('d');
+                    $fecha2=date('m');
+                    $fecha3=date('Y');
+                    $hora=date('h:i a'); 
+                }
+                if($zona=='value2')
+                {
+                    date_default_timezone_set("America/Mexico_City");
+                    $lugar = date_default_timezone_get();
+                    $fecha=date('d');
+                    $fecha2=date('m');
+                    $fecha3=date('Y');
+                    $hora=date('h:i a'); 
+                }
+    
+                if($zona=='value3')
+                {
+                    date_default_timezone_set("Europe/Berlin");
+                    $lugar = date_default_timezone_get();
+                    $fecha=date('d');
+                    $fecha2=date('m');
+                    $fecha3=date('Y');
+                    $hora=date('h:i a');
+                }
+    
+                echo $fecha;
+                echo "/";
+                //Config de Meses XD
+                if($fecha2==1)
+                {
+                    echo"Enero";
+                }
+                if($fecha2==2)
+                {
+                    echo"Febrero";
+                }
+                if($fecha2==3)
+                {
+                    echo"Marzo";
+                }
+                if($fecha2==4)
+                {
+                    echo"Abril";
+                }
+                if($fecha2==5)
+                {
+                    echo"Mayo";
+                }
+                if($fecha2==6)
+                {
+                    echo"Junio";
+                }
+                if($fecha2==7)
+                {
+                    echo"Julio";
+                }
+                if($fecha2==8)
+                {
+                    echo"Agosto";
+                }
+                if($fecha2==9)
+                {
+                    echo"Septiembre";
+                }
+                if($fecha2==10)
+                {
+                    echo"Octubre";
+                }
+                if($fecha2==11)
+                {
+                    echo"Noviembre";
+                }
+                if($fecha2==12)
+                {
+                    echo"Diciembre";
+                }
+                echo "/";
+                echo $fecha3;
+                echo " <b>a las: </b>";
+                echo $hora;
+                echo "<b> en </b>";
+                echo $lugar;
+                echo '<br><br>';                                
+                echo 'Busqueda: ';
+                echo $buscar;
+                echo '<br>';
     ?>
 </body>
 </html>
