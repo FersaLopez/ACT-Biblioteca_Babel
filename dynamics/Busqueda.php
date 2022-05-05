@@ -86,13 +86,19 @@
                                     for($y=0; $y < $num_localidades; $y++)
                                     {
                                         if($insertar != $rand_posis[$y])
-                                        {
-                                            array_push($rand_posis, $insertar);
-                                            array_shift($rand_posis);
-                                            $i++;
-                                        }
-                                    }                                                                                                            
-                                }                                
+                                        {                                            
+                                            $verif_inc=1;
+                                        }              
+                                        else
+                                            $verif_inc = 0;                          
+                                    }    
+                                    if($verif_inc == 1)
+                                    {
+                                        array_push($rand_posis, $insertar);
+                                        array_shift($rand_posis);
+                                        $i++;
+                                    }                                                                                
+                                }                                        
                                 for($i=0; $i<$long_texto; $i++)
                                 {
                                     $long_palabra=rand(4,10);                                    
