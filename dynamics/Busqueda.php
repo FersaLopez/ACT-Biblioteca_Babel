@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        $buscar = (isset($_POST["Buscar"]) && $_POST["Buscar"] != "")? $_POST['Buscar'] : "no especifico";
+        $buscar = (isset($_POST["Buscar"]) && $_POST["Buscar"] != "")? $_POST['Buscar'] : "";
         $zona = (isset($_POST['Zona']) && $_POST["Zona"] != "")? $_POST['Zona'] : "no especifico";
         $modo = (isset($_POST['MODO']) && $_POST["MODO"] != "")? $_POST['MODO'] : "no especifico";
         
@@ -27,7 +27,7 @@
         echo '<br><br>';
                 
         echo "
-            <table border='1'>                    <!--Poner formato agradable a la tabla-->
+            <table border='1' align='center' cellpadding='30px'>                    <!--Poner formato agradable a la tabla-->
                 <thead>
                     <tr>
                         <th>";   
@@ -85,6 +85,12 @@
                                     {
                                         echo "<strong><em>$buscar </em></strong>";
                                     }
+                                    //INSERTAR FRASE "No se ha introducido una búsqueda, la torre de babel no puede dar respuestas a quien no hace preguntas"
+                                    if($i==$insertar && $buscar== '')
+                                    {
+                                        echo "<strong><em>No se ha introducido una búsqueda, la torre de babel no puede dar respuestas a quien no hace preguntas</em></strong>";
+                                    }
+
                                     if($modo == 'Orden' && $i==$insertar)
                                     {
                                         /*$minus_arreglo= strtolower($buscar);
@@ -98,7 +104,7 @@
                                 }            
                             }                            
                             else
-                            {                                                                                                                                                      
+                            {                                                                                                                                                    
                                 $long_texto=rand(300,500);                                                                       
                                 $arreglo_string = explode(" ", $buscar);
                                 $num_localidades = count($arreglo_string);                                
@@ -142,6 +148,10 @@
                                         {
                                             echo "<strong><em>$arreglo_string[$y] </em></strong>";
                                         }
+                                        if($i==$insertar && $buscar== '')
+                                        {
+                                            echo "<strong><em>No se ha introducido una búsqueda, la torre de babel no puede dar respuestas a quien no hace preguntas</em></strong>";
+                                        }  
                                     }
                                 }                                                                                                            
                             }                            
@@ -152,37 +162,25 @@
                 </table>
                 ";        
                 echo "<br>";
-                echo "<b>La fecha de la consulta de este libro fue: </b>";
-                
+                echo "<b>La fecha de la consulta de este libro fue: </b>";            
                 //Config Zona Horaria
                 if($zona=='value1')
                 {
-                    date_default_timezone_set("America/New_York");
-                    $lugar = date_default_timezone_get();
-                    $fecha=date('d');
-                    $fecha2=date('m');
-                    $fecha3=date('Y');
-                    $hora=date('h:i a'); 
+                    date_default_timezone_set("America/New_York");                    
                 }
                 if($zona=='value2')
                 {
-                    date_default_timezone_set("America/Mexico_City");
-                    $lugar = date_default_timezone_get();
-                    $fecha=date('d');
-                    $fecha2=date('m');
-                    $fecha3=date('Y');
-                    $hora=date('h:i a'); 
+                    date_default_timezone_set("America/Mexico_City");                    
                 }
-    
                 if($zona=='value3')
                 {
-                    date_default_timezone_set("Europe/Berlin");
-                    $lugar = date_default_timezone_get();
-                    $fecha=date('d');
-                    $fecha2=date('m');
-                    $fecha3=date('Y');
-                    $hora=date('h:i a');
+                    date_default_timezone_set("Europe/Berlin");                    
                 }
+                $lugar = date_default_timezone_get();
+                $fecha=date('d');
+                $fecha2=date('m');
+                $fecha3=date('Y');
+                $hora=date('h:i a'); 
     
                 echo $fecha;
                 echo "/";
@@ -367,11 +365,9 @@
                         echo " de ";
                         echo $ano;
                         $existe_fecha+=1;
-                    }
-                    
+                    }                    
                 }
                 echo "<br>";
-
     ?>
 </body>
 </html>
