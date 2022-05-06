@@ -242,9 +242,136 @@
                 echo "<b> en </b>";
                 echo $lugar;
                 echo '<br><br>';                                
-                echo 'Busqueda: ';
-                echo $buscar;
-                echo '<br>';
+                //
+                $dia=rand(1,31);
+                $mes=rand(1,12);
+                $ano=rand(1000,2022);
+                $existe_fecha =checkdate($dia,$mes,$ano);
+
+                if($existe_fecha==1)
+                {
+                    echo "Fecha de creación de este libro: ";
+                    echo $dia;
+                    echo " de ";
+                    //Config de Meses de la creación del libro
+                    if($mes==1)
+                    {
+                        echo"Enero";
+                    }
+                    if($mes==2)
+                    {
+                        echo"Febrero";
+                    }
+                    if($mes==3)
+                    {
+                        echo"Marzo";
+                    }
+                    if($mes==4)
+                    {
+                        echo"Abril";
+                    }
+                    if($mes==5)
+                    {
+                        echo"Mayo";
+                    }
+                    if($mes==6)
+                    {
+                        echo"Junio";
+                    }
+                    if($mes==7)
+                    {
+                        echo"Julio";
+                    }
+                    if($mes==8)
+                    {
+                        echo"Agosto";
+                    }
+                    if($mes==9)
+                    {
+                        echo"Septiembre";
+                    }
+                    if($mes==10)
+                    {
+                        echo"Octubre";
+                    }
+                    if($mes==11)
+                    {
+                        echo"Noviembre";
+                    }
+                    if($mes==12)
+                    {
+                        echo"Diciembre";
+                    }
+                    echo " de ";
+                    echo $ano;
+                }
+                while($existe_fecha==0)
+                {
+                    $dia=rand(1,31);
+                    $mes=rand(1,12);
+                    $ano=rand(1000,2022);
+                    $existe_fecha =checkdate($dia,$mes,$ano);
+                    if($existe_fecha==1)
+                    {
+                        echo "Fecha de creación de este libro: ";
+                        echo $dia;
+                        echo " de ";
+                        if($mes==1)
+                        {
+                            echo"Enero";
+                        }
+                        if($mes==2)
+                        {
+                            echo"Febrero";
+                        }
+                        if($mes==3)
+                        {
+                            echo"Marzo";
+                        }
+                        if($mes==4)
+                        {
+                            echo"Abril";
+                        }
+                        if($mes==5)
+                        {
+                            echo"Mayo";
+                        }
+                        if($mes==6)
+                        {
+                            echo"Junio";
+                        }
+                        if($mes==7)
+                        {
+                            echo"Julio";
+                        }
+                        if($mes==8)
+                        {
+                            echo"Agosto";
+                        }
+                        if($mes==9)
+                        {
+                            echo"Septiembre";
+                        }
+                        if($mes==10)
+                        {
+                            echo"Octubre";
+                        }
+                        if($mes==11)
+                        {
+                            echo"Noviembre";
+                        }
+                        if($mes==12)
+                        {
+                            echo"Diciembre";
+                        }
+                        echo " de ";
+                        echo $ano;
+                        $existe_fecha+=1;
+                    }
+                    
+                }
+                echo "<br>";
+
     ?>
 </body>
 </html>
