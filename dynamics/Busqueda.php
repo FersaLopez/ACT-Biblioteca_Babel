@@ -31,8 +31,33 @@
                 <thead>
                     <tr>
                         <th>";   
-                            $long_identificador=rand();             //Poner un texto mas aleatorio con CARACTERES
-                            echo "<br>Libro $long_identificador <br><br>";
+                            $long_identificador=rand(1, 5);                                 
+                            for($i = 0; $i<$long_identificador; $i++)                            
+                                $array_1numrand[$i] = '0';                                                        
+                            for($i=0; $i<$long_identificador; $i++)
+                            {
+                                $array_1numrand[$i] = rand(0,9);                                
+                            }
+                            $long_identificador=rand(1,5);
+                            for($i = 0; $i<$long_identificador; $i++)                            
+                                $array_charrand[$i] = '0';           
+                            for($i=0; $i<$long_identificador; $i++)
+                            {                                
+                                $ascii=rand(97, 122); 
+                                $letra= chr($ascii);                                 
+                                $array_charrand[$i] = $letra;
+                            }
+                            $long_identificador=rand(1, 7);            
+                            for($i = 0; $i<$long_identificador; $i++)                            
+                                $array_2numrand[$i] = '0';           
+                            for($i=0; $i<$long_identificador; $i++)
+                            {
+                                $array_2numrand[$i] = rand(0,9);                                
+                            }
+                            $titulo1 = array_merge($array_1numrand, $array_charrand);
+                            $titulo2 = array_merge($titulo1, $array_2numrand);
+                            $titulo_string = implode("", $titulo2);  
+                            echo "<br>Libro $titulo_string <br><br>";
                     echo "</th>
                     </tr>
                 </thead>
@@ -58,15 +83,17 @@
                                     echo " "; 
                                     if($modo == 'Normal' && $i==$insertar)
                                     {
-                                        echo "<strong>$buscar </strong>";
+                                        echo "<strong><em>$buscar </em></strong>";
                                     }
                                     if($modo == 'Orden' && $i==$insertar)
                                     {
-                                        $minus_arreglo= strtolower($buscar);
+                                        /*$minus_arreglo= strtolower($buscar);
                                         $arreglo_cad = explode(" ", $minus_arreglo);
+                                        */
+                                        $arreglo_cad = explode(" ", $buscar);
                                         sort($arreglo_cad);
                                         $cadenaordenada = implode(" ", $arreglo_cad);
-                                        echo "<strong>$cadenaordenada </strong>";
+                                        echo "<strong><em>$cadenaordenada </em></strong>";
                                     }
                                 }            
                             }                            
@@ -113,7 +140,7 @@
                                     {
                                         if($i == $rand_posis[$y])
                                         {
-                                            echo "<strong>$arreglo_string[$y] </strong>";
+                                            echo "<strong><em>$arreglo_string[$y] </em></strong>";
                                         }
                                     }
                                 }                                                                                                            
